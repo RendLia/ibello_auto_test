@@ -1,0 +1,1 @@
+Automata test gherkin alapon
