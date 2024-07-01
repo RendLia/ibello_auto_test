@@ -13,6 +13,7 @@ public class new_cases {
 		boolean newform=false;
 		file.appendfile("Új ügy form megnyitása\r\n\r\n", destFile);
 		driver.findElement(By.xpath("/html/body/div/router-view/div/div[2]/div/a")).click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
 		boolean success_login = driver.findElement(By.xpath("/html/body/div/router-view/div/div[1]/h3")).isDisplayed();
 		if (success_login==true) {
 			file.appendfile("  Sikeres új ügy form megnyitása\r\n\r\n", destFile); 
@@ -24,11 +25,15 @@ public class new_cases {
 	
 	public static void newcaseCreat(WebDriver driver, boolean newform,String destFile) {
 		file.appendfile("Új ügy form kitöltése\r\n\r\n", destFile);
-		SimpleDateFormat DateFormat = new SimpleDateFormat("yyyy-MM-dd"+1);
-		String tomorrow = DateFormat.format(new Date());
-		String date= String.valueOf(tomorrow);
+		SimpleDateFormat DateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String today = DateFormat.format(new Date());
+		String tomorrow[]= today.split("-");
+		int day= Integer.valueOf(tomorrow[2])+1; 
+		String today1=null;
+		if(day<10) today1="0"+day;
+		else today1=String.valueOf(day);
 		if(newform==true) {
-		driver.findElement(By.xpath("//*[@id=\"validity\"]")).sendKeys("2024-07-02");
+		driver.findElement(By.xpath("//*[@id=\"validity\"]")).sendKeys(tomorrow[0]+"-"+tomorrow[1]+"-"+today1);
 		file.appendfile("  Holnapi nap megadása\r\n", destFile);
 		driver.findElement(By.xpath("//*[@id=\"person\"]")).sendKeys("Rendi Lívia");
 		file.appendfile("  Személy megadása\r\n", destFile);

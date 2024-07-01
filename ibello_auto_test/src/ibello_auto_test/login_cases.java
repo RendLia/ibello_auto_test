@@ -1,5 +1,7 @@
 package ibello_auto_test;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,6 +15,7 @@ public class login_cases {
 		file.appendfile("  Jelszó megadása sikeres\r\n", destFile);
 		driver.findElement(By.xpath("/html/body/div/router-view/div/div[2]/div/button")).click();
 		file.appendfile("  Gomb megnyomása sikeres\r\n", destFile);
+		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
 		boolean success_login = driver.findElement(By.xpath("/html/body/div/router-view/div/div[1]")).isDisplayed();
 		if (success_login==true)file.appendfile("  Sikeres belépés\r\n\r\n", destFile);
 		else 	file.appendfile("  A belépés sikertelen\r\n\r\n", destFile);
@@ -25,6 +28,7 @@ public class login_cases {
 		file.appendfile("  Jelszó megadása sikeres\r\n", destFile);
 		driver.findElement(By.xpath("/html/body/div/router-view/div/div[2]/div/button")).click();
 		file.appendfile("  Gomb megnyomása sikeres\r\n", destFile);
+		 driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
 		boolean success_login = driver.findElement(By.xpath("/html/body/div/router-view/div/div[1]")).isDisplayed();
 		if (success_login==true)file.appendfile("  Sikeres belépés\r\n\r\n", destFile);
 		else 	file.appendfile("  A belépés sikertelen\r\n\r\n", destFile);
