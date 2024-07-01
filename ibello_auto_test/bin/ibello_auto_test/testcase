@@ -1,0 +1,28 @@
+Egy demó ügykezelő alkalmazásra (https://ibello.hu/tasks/cases/) kell UI teszteket automatizálni 
+a megadott forgatókönyvek alapján.
+
+Forgatókönyvek:
+
+Scenario: Érvényes felhasználói adatokkal a bejelentkezés sikeres
+   Given a felhasználó a bejelentkezési felületen van
+   When a felhasználó érvényes felhasználói nevet ad meg
+   And a felhasználó érvényes jelszót ad meg
+   And a felhasználó megpróbál bejelentkezni
+   Then a bejelentkezés sikeres
+   And a felhasználó a főoldalra érkezik
+
+Scenario: Érvénytelen jelszóval a bejelentkezés sikertelen
+   Given a felhasználó a bejelentkezési felületen van
+   When a felhasználó érvényes felhasználói nevet ad meg
+   And a felhasználó érvénytelen jelszót ad meg
+   And a felhasználó megpróbál bejelentkezni
+   Then a bejelentkezés sikertelen
+   And a felhasználó érvénytelen felhasználói adatokkal kapcsolatos hibaüzenetet kap
+
+Scenario: Jövőbeni érvényességi dátummal egy új ügy sikeresen rögzíthető
+   Given a felhasználó az új ügy rögzítési felületen van
+   And a felhasználó kitöltötte az összes adatot
+   When a felhasználó a holnapi napot adja meg érvényességi időnek
+   And a felhasználó elmenti az új ügyet
+   Then az új ügy felvétele sikeres
+   And az új ügy megjelenik az ügyek táblázatban

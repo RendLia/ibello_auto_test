@@ -1,0 +1,27 @@
+Sikertelen login teszt
+
+  User név megadása sikeres
+  Jelszó megadása sikeres
+  Gomb megnyomása sikeres
+  Sikeres belépés
+
+Sikeres login teszt
+
+  User név megadása sikeres
+  Jelszó megadása sikeres
+  Gomb megnyomása sikeres
+  Sikeres belépés
+
+Új ügy form megnyitása
+
+  Sikeres új ügy form megnyitása
+
+Új ügy form kitöltése
+
+  Holnapi nap megadása
+  Személy megadása
+  Város megadása
+  Irányítószám megadása
+  Közterület megadása
+  Házszám megadása
+  Sikeres a mentés gomb megnyomása
